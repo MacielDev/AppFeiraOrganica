@@ -5,6 +5,7 @@ import { BrowserRouter, Switch , Route} from 'react-router-dom';
 
 import { UsuarioProvider } from 'common/context/Usuario';
 import { CarrinhoProvider } from 'common/context/Carrinho';
+import { PagamentoProvider } from 'common/context/Pagamento';
 
 export default function Router(){
   
@@ -20,11 +21,14 @@ export default function Router(){
               <Route path="/feira">
                 <Feira/>
               </Route>
+              <PagamentoProvider>
+                <Route parh="/carrinho">
+                  <Carrinho/>
+                </Route>
+              </PagamentoProvider>
             </CarrinhoProvider>
         </UsuarioProvider>
-        <Route parh="/carrinho">
-          <Carrinho/>
-        </Route>
+        
       </Switch>
     </BrowserRouter>
   );
